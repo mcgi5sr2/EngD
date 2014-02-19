@@ -1,0 +1,229 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[titletoc]{appendix}
+\usepackage{lastpage}
+\usepackage[usenames,dvipsnames,table]{xcolor}
+\definecolor{RR}{cmyk}{1,0.5,0,0.44}
+\definecolor{Blue}{cmyk}{1,0.38,0,0.13}
+\definecolor{Purple}{cmyk}{0.37,1,0,0.5}
+\definecolor{Gold}{cmyk}{0,0.15,1,0.01}
+\definecolor{Grey}{cmyk}{0,0,0.1,0.73}
+\definecolor{Lgrey}{cmyk}{0,0,0.1,0.2}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{float}
+\onehalfspace
+\usepackage{verbatim}
+\usepackage{url}
+\usepackage{listings}
+\usepackage{booktabs}
+\usepackage{epsfig}
+\usepackage{multirow}
+\usepackage{amsmath} 
+\usepackage{hyperref}
+\usepackage[abbr]{harvard} %Harvard ref package
+\renewcommand\harvardurl[1]{\textit{URL:}\url{#1}}
+\harvardparenthesis{square}
+\usepackage[margin=70pt]{geometry} %Set margins
+\usepackage{sectsty}
+\sectionfont{\mdseries\itshape\color{RR}}
+\subsectionfont{\mdseries\itshape\color{RR}}
+\usepackage{enumitem}
+\usepackage[none]{hyphenat} %Removes hyphenation :'-(
+\usepackage{fancyhdr}
+
+%Set fancy page style
+\pagestyle{fancy}
+\fancyhf{} %deletes current hf
+\rhead{NTEC-N30}
+\cfoot{\thepage\ of \pageref{LastPage}}
+\fancyfootoffset[L]{100pt}
+\fancyheadoffset[L]{-250pt}
+\renewcommand{\headrule}{{\color{RR}\hrule width250pt height0.01pt \vskip-\headrulewidth}}
+\renewcommand{\footrule}{{\color{RR}\vskip-\footruleskip\vskip-\footrulewidth\hrule width400pt height0.01pt \vskip\footruleskip}}
+%Set abstract page style
+\fancypagestyle{abstract}{
+\fancyhf{} % clear all header and footer fields
+\cfoot{\thepage\ of \pageref{LastPage}}
+\fancyfootoffset[L]{100pt}
+\fancyheadoffset[L]{-250pt}
+\renewcommand{\headrule}{{\color{RR}\hrule width250pt height0.01pt \vskip-\headrulewidth}}
+\renewcommand{\footrule}{{\color{RR}\vskip-\footruleskip\vskip-\footrulewidth
+\hrule width400pt height0.01pt \vskip\footruleskip}}
+}
+
+\begin{document}
+\begin{titlepage}
+\begin{minipage}{0.95\textwidth}
+\begin{flushright} \large
+\includegraphics[width=0.2\textwidth]{Imgs/namrclogo}\\
+\includegraphics[width=0.2\textwidth]{Imgs/sheffunilogo}\\
+\includegraphics[width=0.2\textwidth]{Imgs/manunilogo}
+\end{flushright}
+\end{minipage}\\[5cm]
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\centering
+{\color{Blue} \Huge \bfseries Safety Critical Systems} %Title
+\\{\color{Grey}  \large NTEC N-30}
+\\[0.4cm]% \color{Purple}{\HRule} \\[1.5cm]
+\textcolor{Blue}{\emph{Author:}} \\
+\textcolor{Grey}{UID: \textsc{2502881}}\\\bigskip
+{\color{Blue} \large \today}\\ %Date
+\textcolor{Grey}{Word Count: N/A}\\[7.5cm]
+\includegraphics[width=0.2\textwidth]{Imgs/Catlogo}\hspace{3cm}
+\includegraphics[width=0.2\textwidth]{Imgs/RRlogo}\hspace{3cm}
+\includegraphics[width=0.2\textwidth]{Imgs/EU7thlogo} 
+\vfill % Fill the rest of the page with whitespace
+\end{titlepage}
+\newpage
+
+
+\thispagestyle{fancy}
+\renewcommand{\contentsname}{List of Contents{\color{Blue} \hrule width300pt height0.02pt}}
+\textcolor{Grey}{\tableofcontents}
+\renewcommand{\listfigurename}{List of Figures {\color{Blue} \hrule width250pt height0.01pt}}
+\textcolor{Grey}{\listoffigures}
+\renewcommand{\listtablename}{List of Tables {\color{Blue} \hrule width250pt height0.01pt}}
+\textcolor{Grey}{\listoftables}
+%\clearpage
+\newpage
+
+
+\thispagestyle{abstract}
+\renewcommand{\abstractname}{\large \textsf{Executive Summary} {\color{Blue} \hrule width250pt height0.01pt}}\hrule width0pt height0pt \bigskip
+\begin{abstract}\bigskip\bigskip
+This report is for the NTEC-N30 course in Safety Critical Systems. Section one is a design brief for a system to stop a pram, section two is the analysis of a second design brief on the same subject. The design briefs were created during the week long course at the University of Lancaster. The briefs are broken down in the manner shown below \\
+
+\begin{table}[H]
+\label{tab:win}
+	\rowcolors{1}{white}{Lgrey}
+	\begin{center}
+	\begin{tabular}{p{0.4\textwidth}|p{0.4\textwidth}}
+\toprule 
+{\bf Task One} & {\bf Task Two}\\
+\midrule
+Customer Requirements & Requirements Quality\\
+Engineering Requirements & Functional Decomposition\\
+A Functional decomposition & Chosen Technologies\\
+A Design Idea Shower & Safety Attributes\\
+A HAZOP & HAZOP\\
+Design Outline & Risk Assessment\\
+A Failure mode and Effects Analysis & Safety Case\\
+A Functional Tree Analysis & \\
+A Safety Case & \\
+\bottomrule
+	\end{tabular}
+\end{center}
+\caption{Design Brief Breakdown for Tasks One and Two}
+\end{table}
+\end{abstract}
+\newpage
+
+\thispagestyle{fancy}
+\section[Task One]{Design Report on Pram Emergency Brake}\medskip
+The group was given the task to create a design brief for an automated pram stopping device. The device was meant to satisfy the both customer and engineering requirements, whereas the design was to include documents and consideration of safety case analysis. 
+
+<----Report should be at least five pages excluding diagrams or FTA. Worth 60\% of the report, 5 marks per heading----->
+
+\subsection{Customer Requirements}
+A discussion was held with another group who played the part of the customer, this was to represent real world interaction with the end user. Through a collaborative process a list of requirements was generated.
+\begin{table}[H]
+\label{tab:win}
+	\rowcolors{1}{white}{Lgrey}
+	\begin{center}
+	\begin{tabular}{p{0.4\textwidth}|p{0.4\textwidth}}
+\toprule 
+{\bf Customer Requirements} & {\bf }\\
+\midrule
+ & \\
+
+\bottomrule
+	\end{tabular}
+\end{center}
+\caption{Customer Requirements}
+\end{table}
+\subsection{Engineering Requirements}
+Include functional safety requirements
+\subsection{Functional Decomposition}
+Note and new requirements arising from decomposition
+\subsection{Design Idea Shower}
+to include rejected ideas and reason why rejected
+\subsection{Design Outline}
+Black box level modules of design, ie callipers brake levers etc
+\subsection{HAZOP}
+\subsection{Qualitative Risk Assessment}
+High/Med/Low consequence/probability for the top two hazards
+\subsection{FMEA}
+for one module, only correct or incorrect output states
+\subsection{FTA}
+for the system, again assuming only correct/incorrect output states
+\subsection{Safety Case}
+For the system. What an organisation would be expected to do. Providing an example of each key context, environment, design process, quality.
+\begin{quote}
+System operates satisfactorily in a range of temperatures -5 to + 30 Environmental test conducted
+\end{quote}
+
+
+\section[Task Two]{Safety Assesment Report on Competing Pram Emergency Brake}\medskip
+Can use multiple examples to illustrate good and bad practise. Minumum two pages of text not including diagrams
+or cut and past sections of other peoples work
+\subsection{Requirements Quality}
+Use one or two examples to illustrate good and bad practice
+\subsection{Functional Decomposition}
+Comment on the depth of breakdown and suggest better approaches
+\subsection{Chosen Technologies}
+Comment on, appropriate, risk, cost
+\subsection{Safety Attributes}
+adequacy of safety attributes of the final design
+\subsection{HAZOP}
+comment on completeness, if anything is missing
+\subsection{Risk Assessment}
+Is it realistic
+\subsection{Safety Case}
+Adequacy of claims, quality of the arguments, evidence. Include what you think would be adequate
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{Imgs/boeinglogo}
+\caption[5Ds of Appreciative Enquiry]{Appreciative Enquiries 5D cycle\protect\cite{kular2008employee}}
+\end{figure}
+
+\begin{appendix}
+\section{Rolls-Royce HR comments}
+\begin{table}[H]
+\label{tab:win}
+\caption{A collection of unused phrases from Rolls-Royce HR dept}
+	\rowcolors{1}{white}{Lgrey}
+	\begin{center}
+	\begin{tabular}{p{0.9\textwidth}}
+\toprule 
+{\bf HR catch phrases}\\
+\midrule
+HR is about creating a supportive organisational context\\
+If a well designed team is the seedling then the organisational context is the soil\\
+Its about Self Directed Teams and growing peoples capability such that they are able to effect required change in the areas that they work.
+A leaders role is to create a supportive environment to allow this to happen.\\
+The reward system reinforces the motivational benefits of challenging direction, and demonstrates the organisation cares enough to expend resources on the team.\\
+We listen and respond to the team, providing balanced feedback\\
+Listen and respond to the team members concerns\\
+Encourage team members to expose problems, whilst challenging them to consider solutions\\
+Provide support without removing responsibility\\
+Create an environment of trust\\
+Be innovative about how you recognise excellent performance\\
+A Team gets line of sight when they understand what is required, what the metric of success is, and how their collective behaviour directly shapes and triggers these rewards\\
+It is managements job 365 days a year to motivate the workforce - not the reward structure\\
+Employees need to feel cared about, listened to and part of the business. Employee Engagement should help address what is stopping you from making the best contribution you can make to our business\\
+Globally employees need to know that they have a voice but more than that they need to know that what they are saying is being listened to which I plan to continue to champion in my role as your Sponsor\\
+Never give up emphasizing the criticism of management bull***t talk.\\
+\bottomrule
+	\end{tabular}
+\end{center}
+\end{table}
+
+\newpage
+\bibliography{MCEL617102}{}
+\bibliographystyle{agsm}
+\end{appendix}
+\end{document}
